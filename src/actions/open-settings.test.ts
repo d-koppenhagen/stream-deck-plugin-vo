@@ -1,7 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
 
-import { SpeedDownAction } from "./speed-down";
-import type { CommandService } from "../services/command-service";
+import { OpenSettingsAction } from "./open-settings";
 import type { VoiceOverStateService } from "../services/voiceover-state-service";
 
 // Mock the Stream Deck SDK.
@@ -33,10 +32,7 @@ function createMockStateService(): VoiceOverStateService {
   return {
     isRunning: vi.fn<() => Promise<boolean>>(),
     toggle: vi.fn<() => Promise<boolean>>(),
-    getSpeechRate: vi.fn<() => Promise<number>>(),
-    setSpeechRate: vi.fn<() => Promise<number>>(),
-    increaseSpeechRate: vi.fn<() => Promise<number>>(),
-    decreaseSpeechRate: vi.fn<() => Promise<number>>(),
+    openSettings: vi.fn<() => Promise<void>>(),
   } as unknown as VoiceOverStateService;
 }
 
@@ -44,15 +40,15 @@ function createMockKeyDownEvent() {
   return {
     action: { setState: vi.fn() },
     payload: { isInMultiAction: false, settings: {} },
-  } as unknown as Parameters<SpeedDownAction["onKeyDown"]>[0];
+  } as unknown as Parameters<OpenSettingsAction["onKeyDown"]>[0];
 }
 
-describe("SpeedDownAction", () => {
-  let actionInstance: SpeedDownAction;
+describe("OpenSettingsAction", () => {
+  let actionInstance: OpenSettingsAction;
   let mockStateService: VoiceOverStateService;
 
   beforeEach(() => {
-    actionInstance = new SpeedDownAction();
+    actionInstance = new OpenSettingsAction();
     mockStateService = createMockStateService();
 
     // Inject mock service.
@@ -63,15 +59,15 @@ describe("SpeedDownAction", () => {
   });
 
   describe("onKeyDown", () => {
-    it("decreases speech rate when VoiceOver is running", async () => {
+    it("opens settings when VoiceOver is running", async () => {
       vi.mocked(mockStateService.isRunning).mockResolvedValue(true);
-      vi.mocked(mockStateService.decreaseSpeechRate).mockResolvedValue(40);
+      vi.mocked(mockStateService.openSettings).mockResolvedValue(undefined);
       const ev = createMockKeyDownEvent();
 
       await actionInstance.onKeyDown(ev);
 
       expect(mockStateService.isRunning).toHaveBeenCalledOnce();
-      expect(mockStateService.decreaseSpeechRate).toHaveBeenCalledOnce();
+      expect(mockStateService.openSettings).toHaveBeenCalledOnce();
     });
 
     it("does nothing when VoiceOver is not running", async () => {
@@ -81,13 +77,13 @@ describe("SpeedDownAction", () => {
       await actionInstance.onKeyDown(ev);
 
       expect(mockStateService.isRunning).toHaveBeenCalledOnce();
-      expect(mockStateService.decreaseSpeechRate).not.toHaveBeenCalled();
+      expect(mockStateService.openSettings).not.toHaveBeenCalled();
     });
 
-    it("does not throw when decreaseSpeechRate fails", async () => {
+    it("does not throw when openSettings fails", async () => {
       vi.mocked(mockStateService.isRunning).mockResolvedValue(true);
-      vi.mocked(mockStateService.decreaseSpeechRate).mockRejectedValue(
-        new Error("rate change failed"),
+      vi.mocked(mockStateService.openSettings).mockRejectedValue(
+        new Error("open failed"),
       );
       const ev = createMockKeyDownEvent();
 
@@ -101,7 +97,7 @@ describe("SpeedDownAction", () => {
       const ev = createMockKeyDownEvent();
 
       await expect(actionInstance.onKeyDown(ev)).resolves.toBeUndefined();
-      expect(mockStateService.decreaseSpeechRate).not.toHaveBeenCalled();
+      expect(mockStateService.openSettings).not.toHaveBeenCalled();
     });
   });
 });

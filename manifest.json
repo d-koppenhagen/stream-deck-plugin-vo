@@ -44,23 +44,13 @@
       ]
     },
     {
-      "Name": "Speed Up",
-      "UUID": "com.voiceover-streamdeck.speed-up",
-      "Icon": "imgs/actions/speed-up",
-      "Tooltip": "Increase speech rate",
+      "Name": "Open VoiceOver Settings",
+      "UUID": "com.voiceover-streamdeck.open-settings",
+      "Icon": "imgs/actions/open-settings",
+      "Tooltip": "Open VoiceOver Utility settings",
       "States": [
-        { "Image": "imgs/actions/speed-up", "Name": "Enabled" },
-        { "Image": "imgs/actions/speed-up-disabled", "Name": "Disabled" }
-      ]
-    },
-    {
-      "Name": "Speed Down",
-      "UUID": "com.voiceover-streamdeck.speed-down",
-      "Icon": "imgs/actions/speed-down",
-      "Tooltip": "Decrease speech rate",
-      "States": [
-        { "Image": "imgs/actions/speed-down", "Name": "Enabled" },
-        { "Image": "imgs/actions/speed-down-disabled", "Name": "Disabled" }
+        { "Image": "imgs/actions/open-settings", "Name": "Enabled" },
+        { "Image": "imgs/actions/open-settings-disabled", "Name": "Disabled" }
       ]
     },
     {

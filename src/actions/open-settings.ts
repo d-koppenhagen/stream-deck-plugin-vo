@@ -11,12 +11,12 @@ import { VoiceOverStateService } from "../services/voiceover-state-service.js";
 import { voiceOverMonitor } from "../services/voiceover-monitor.js";
 
 /**
- * Stream Deck action that decreases the VoiceOver speech rate.
+ * Stream Deck action that opens the VoiceOver Utility settings.
  */
-@action({ UUID: "com.voiceover-streamdeck.speed-down" })
-export class SpeedDownAction extends SingletonAction {
+@action({ UUID: "com.voiceover-streamdeck.open-settings" })
+export class OpenSettingsAction extends SingletonAction {
   private readonly stateService: VoiceOverStateService;
-  private readonly logger = streamDeck.logger.createScope("SpeedDownAction");
+  private readonly logger = streamDeck.logger.createScope("OpenSettingsAction");
 
   constructor() {
     super();
@@ -36,9 +36,9 @@ export class SpeedDownAction extends SingletonAction {
     try {
       const running = await this.stateService.isRunning();
       if (!running) return;
-      await this.stateService.decreaseSpeechRate();
+      await this.stateService.openSettings();
     } catch (error) {
-      this.logger.error("Speed down failed", error);
+      this.logger.error("Open settings failed", error);
     }
   }
 }
