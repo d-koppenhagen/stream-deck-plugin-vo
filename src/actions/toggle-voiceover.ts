@@ -46,7 +46,6 @@ export class ToggleVoiceOverAction extends SingletonAction {
       }
 
       await this.stateService.toggle();
-      // Trigger immediate icon refresh for all actions
       await voiceOverMonitor.refresh();
     } catch (error) {
       this.logger.error("VoiceOver toggle failed", error);

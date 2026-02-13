@@ -8,23 +8,19 @@ import { setRotorOpen, isRotorOpen } from "./rotor-state.js";
  *   State 0 = Enabled (white icon)
  *   State 1 = Disabled (gray icon)
  *
- * For toggle and rotor, the "active" (inverted) look is applied via setImage
+ * For the rotor action, the "active" (inverted) look is applied via setImage
  * on top of state 0.
  */
 
 const ACTIVE_IMAGES: Record<string, string> = {
-  "com.voiceover-streamdeck.toggle": "imgs/actions/toggle-voiceover-active",
   "com.voiceover-streamdeck.open-rotor": "imgs/actions/open-rotor-active",
 };
 
-const POLL_INTERVAL_MS = 2000;
+const POLL_INTERVAL_MS = 1000;
 
 /**
  * Monitors VoiceOver running state and updates all registered
  * Stream Deck action icons via setState (0=enabled, 1=disabled).
- *
- * For the toggle and rotor actions, setImage is used to show the
- * inverted (active) icon when appropriate.
  */
 export class VoiceOverMonitor {
   private readonly stateService: VoiceOverStateService;
@@ -41,8 +37,8 @@ export class VoiceOverMonitor {
   trackAction(actionId: string, uuid: string, action: Action): void {
     this.trackedActions.set(actionId, { uuid, action });
 
-    // Set initial state to disabled
-    if (action.isKey()) {
+    // Set initial state to disabled for all actions except open-settings.
+    if (action.isKey() && uuid !== "com.voiceover-streamdeck.open-settings") {
       action.setState(1).catch(() => {});
     }
 
@@ -58,6 +54,17 @@ export class VoiceOverMonitor {
 
   async refresh(): Promise<void> {
     await this.poll();
+  }
+
+  /**
+   * Update all actions using a known VoiceOver state, bypassing the poll.
+   */
+  async refreshWithState(voiceOverRunning: boolean): Promise<void> {
+    this.lastVoiceOverState = voiceOverRunning;
+    if (!voiceOverRunning) {
+      setRotorOpen(false);
+    }
+    await this.updateAllActions(voiceOverRunning);
   }
 
   isVoiceOverActive(): boolean {
@@ -97,16 +104,7 @@ export class VoiceOverMonitor {
       try {
         if (!action.isKey()) continue;
 
-        if (uuid === "com.voiceover-streamdeck.toggle") {
-          // Toggle: state 0 + active image when VO on, state 1 when VO off
-          if (voiceOverRunning) {
-            await action.setState(0);
-            await action.setImage(ACTIVE_IMAGES[uuid]);
-          } else {
-            await action.setState(1);
-            await action.setImage(undefined);
-          }
-        } else if (uuid === "com.voiceover-streamdeck.open-rotor") {
+        if (uuid === "com.voiceover-streamdeck.open-rotor") {
           // Rotor: state 0 when VO on, state 1 when VO off
           // Active image only when rotor is open
           if (!voiceOverRunning) {
@@ -119,8 +117,10 @@ export class VoiceOverMonitor {
             await action.setState(0);
             await action.setImage(undefined);
           }
+        } else if (uuid === "com.voiceover-streamdeck.open-settings") {
+          // Settings: always state 0
         } else {
-          // All other actions: state 0 when VO on, state 1 when VO off
+          // Toggle + all other actions: state 0 when VO on, state 1 when VO off
           await action.setState(voiceOverRunning ? 0 : 1);
         }
       } catch (error) {

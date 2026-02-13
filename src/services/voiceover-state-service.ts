@@ -1,4 +1,5 @@
 import streamDeck from "@elgato/streamdeck";
+import { execFile } from "node:child_process";
 
 import { CommandService } from "./command-service.js";
 
@@ -12,26 +13,36 @@ export class VoiceOverStateService {
   constructor(private readonly commandService: CommandService) {}
 
   /**
-   * Checks whether VoiceOver is currently running.
+   * Checks whether VoiceOver is currently enabled by reading the
+   * macOS accessibility preference. This is instant and reliable
+   * across all macOS versions.
    */
   async isRunning(): Promise<boolean> {
-    const result = await this.commandService.executeAppleScript(
-      'tell application "System Events" to return (name of processes) contains "VoiceOver"',
-    );
-
-    if (!result.success) {
-      this.logger.error(`Failed to check VoiceOver status: ${result.error}`);
-      return false;
-    }
-
-    return result.output === "true";
+    return new Promise<boolean>((resolve) => {
+      execFile(
+        "defaults",
+        ["read", "com.apple.universalaccess", "voiceOverOnOffKey"],
+        { timeout: 2000 },
+        (error, stdout) => {
+          if (error) {
+            resolve(false);
+            return;
+          }
+          resolve(stdout.trim() === "1");
+        },
+      );
+    });
   }
 
   /**
    * Toggles VoiceOver on or off by simulating Cmd+F5.
-   * @returns The new VoiceOver running state after the toggle.
+   * Returns the expected new state immediately without polling,
+   * since the caller (monitor) handles state verification.
+   * @returns The expected new VoiceOver running state.
    */
   async toggle(): Promise<boolean> {
+    const wasPreviouslyRunning = await this.isRunning();
+
     const result = await this.commandService.simulateKeyPress({
       keyCode: 96,
       modifiers: ["command"],
@@ -42,7 +53,7 @@ export class VoiceOverStateService {
       throw new Error(`Failed to toggle VoiceOver: ${result.error}`);
     }
 
-    return this.isRunning();
+    return !wasPreviouslyRunning;
   }
 
   /**

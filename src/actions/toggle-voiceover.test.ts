@@ -33,6 +33,7 @@ vi.mock("../services/voiceover-monitor", () => ({
     trackAction: vi.fn(),
     untrackAction: vi.fn(),
     refresh: mockRefresh,
+    refreshWithState: vi.fn().mockResolvedValue(undefined),
   },
 }));
 
@@ -45,10 +46,7 @@ function createMockStateService(): VoiceOverStateService {
   return {
     toggle: vi.fn<() => Promise<boolean>>(),
     isRunning: vi.fn<() => Promise<boolean>>(),
-    getSpeechRate: vi.fn<() => Promise<number>>(),
-    setSpeechRate: vi.fn<() => Promise<number>>(),
-    increaseSpeechRate: vi.fn<() => Promise<number>>(),
-    decreaseSpeechRate: vi.fn<() => Promise<number>>(),
+    openSettings: vi.fn<() => Promise<void>>(),
   } as unknown as VoiceOverStateService;
 }
 

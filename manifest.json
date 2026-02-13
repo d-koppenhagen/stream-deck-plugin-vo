@@ -29,8 +29,8 @@
       "Icon": "imgs/actions/toggle-voiceover",
       "Tooltip": "Toggle VoiceOver on/off",
       "States": [
-        { "Image": "imgs/actions/toggle-voiceover-active", "Name": "Active" },
-        { "Image": "imgs/actions/toggle-voiceover-disabled", "Name": "Inactive" }
+        { "Image": "imgs/actions/toggle-voiceover-active", "Name": "Enabled" },
+        { "Image": "imgs/actions/toggle-voiceover", "Name": "Disabled" }
       ]
     },
     {

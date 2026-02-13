@@ -18,6 +18,12 @@ vi.mock("@elgato/streamdeck", () => ({
   },
 }));
 
+// Mock node:child_process for the defaults-based isRunning check.
+const mockExecFile = vi.hoisted(() => vi.fn());
+vi.mock("node:child_process", () => ({
+  execFile: mockExecFile,
+}));
+
 function createMockCommandService(overrides: Partial<CommandService> = {}): CommandService {
   return {
     executeAppleScript: vi.fn<(script: string) => Promise<CommandResult>>(),
@@ -26,51 +32,59 @@ function createMockCommandService(overrides: Partial<CommandService> = {}): Comm
   } as unknown as CommandService;
 }
 
+/** Helper: defaults read returns "1" (VO enabled). */
+function voiceOverEnabled() {
+  mockExecFile.mockImplementation(
+    (_cmd: string, _args: string[], _opts: unknown, cb: (err: Error | null, stdout: string) => void) => {
+      cb(null, "1\n");
+    },
+  );
+}
+
+/** Helper: defaults read returns "0" (VO disabled). */
+function voiceOverDisabled() {
+  mockExecFile.mockImplementation(
+    (_cmd: string, _args: string[], _opts: unknown, cb: (err: Error | null, stdout: string) => void) => {
+      cb(null, "0\n");
+    },
+  );
+}
+
 describe("VoiceOverStateService", () => {
   let service: VoiceOverStateService;
   let mockCommandService: CommandService;
 
   beforeEach(() => {
+    vi.clearAllMocks();
     mockCommandService = createMockCommandService();
     service = new VoiceOverStateService(mockCommandService);
   });
 
   describe("isRunning", () => {
-    it("returns true when VoiceOver process is found", async () => {
-      vi.mocked(mockCommandService.executeAppleScript).mockResolvedValue({
-        success: true,
-        output: "true",
-      });
-
+    it("returns true when VoiceOver is enabled", async () => {
+      voiceOverEnabled();
       expect(await service.isRunning()).toBe(true);
     });
 
-    it("returns false when VoiceOver process is not found", async () => {
-      vi.mocked(mockCommandService.executeAppleScript).mockResolvedValue({
-        success: true,
-        output: "false",
-      });
-
+    it("returns false when VoiceOver is disabled", async () => {
+      voiceOverDisabled();
       expect(await service.isRunning()).toBe(false);
     });
 
-    it("returns false when the command fails", async () => {
-      vi.mocked(mockCommandService.executeAppleScript).mockResolvedValue({
-        success: false,
-        error: "timeout",
-      });
-
+    it("returns false when defaults read fails", async () => {
+      mockExecFile.mockImplementation(
+        (_cmd: string, _args: string[], _opts: unknown, cb: (err: Error | null, stdout: string) => void) => {
+          cb(new Error("not found"), "");
+        },
+      );
       expect(await service.isRunning()).toBe(false);
     });
   });
 
   describe("toggle", () => {
-    it("simulates Cmd+F5 and returns the new state", async () => {
+    it("simulates Cmd+F5 and returns true when VO was off", async () => {
       vi.mocked(mockCommandService.simulateKeyPress).mockResolvedValue({ success: true });
-      vi.mocked(mockCommandService.executeAppleScript).mockResolvedValue({
-        success: true,
-        output: "true",
-      });
+      voiceOverDisabled();
 
       const result = await service.toggle();
 
@@ -81,7 +95,17 @@ describe("VoiceOverStateService", () => {
       expect(result).toBe(true);
     });
 
+    it("simulates Cmd+F5 and returns false when VO was on", async () => {
+      vi.mocked(mockCommandService.simulateKeyPress).mockResolvedValue({ success: true });
+      voiceOverEnabled();
+
+      const result = await service.toggle();
+
+      expect(result).toBe(false);
+    });
+
     it("throws when the key press fails", async () => {
+      voiceOverDisabled();
       vi.mocked(mockCommandService.simulateKeyPress).mockResolvedValue({
         success: false,
         error: "access denied",
