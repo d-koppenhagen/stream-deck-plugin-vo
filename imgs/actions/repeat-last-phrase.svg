@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" width="72" height="72">
+  <g fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Circular arrow (repeat/replay symbol) -->
+    <path d="M44 28 A14 14 0 1 1 28 28"/>
+    <!-- Arrowhead -->
+    <polyline points="44 22 44 28 38 28"/>
+  </g>
+</svg>

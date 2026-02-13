@@ -74,8 +74,7 @@ Drag any of the following actions from the "VoiceOver Control" category onto you
 | Script | Description |
 | --- | --- |
 | `npm test` | Run unit and property-based tests via Vitest |
-| `npm run build` | Compile TypeScript to `dist/` |
-| `npm run build:plugin` | Compile + assemble the `com.voiceover-streamdeck.sdPlugin/` bundle |
+| `npm run build` | Compile + assemble the `com.voiceover-streamdeck.sdPlugin/` bundle |
 | `npm run deploy` | Full local deploy: build, link into Stream Deck, and restart the plugin |
 | `npm run dev` | Watch mode — recompiles on file changes (restart plugin manually) |
 
@@ -84,8 +83,7 @@ Drag any of the following actions from the "VoiceOver Control" category onto you
 Run the Stream Deck CLI validator against the built bundle to catch manifest or structure issues early:
 
 ```bash
-npm run build:plugin
-streamdeck validate com.voiceover-streamdeck.sdPlugin
+npm run build
 ```
 
 ### Rebuilding After Changes
@@ -93,7 +91,7 @@ streamdeck validate com.voiceover-streamdeck.sdPlugin
 Once linked, rebuild and restart the plugin to pick up code changes:
 
 ```bash
-npm run build:plugin
+npm run build
 streamdeck restart com.voiceover-streamdeck
 ```
 

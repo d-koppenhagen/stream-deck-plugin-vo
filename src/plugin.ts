@@ -7,6 +7,8 @@ import { SpeedDownAction } from "./actions/speed-down.js";
 import { NextElementAction } from "./actions/next-element.js";
 import { PrevElementAction } from "./actions/prev-element.js";
 import { OpenRotorAction } from "./actions/open-rotor.js";
+import { RepeatLastPhraseAction } from "./actions/repeat-last-phrase.js";
+import { StartReadingAction } from "./actions/start-reading.js";
 
 // Register all plugin actions
 streamDeck.actions.registerAction(new ToggleVoiceOverAction());
@@ -16,6 +18,8 @@ streamDeck.actions.registerAction(new SpeedDownAction());
 streamDeck.actions.registerAction(new NextElementAction());
 streamDeck.actions.registerAction(new PrevElementAction());
 streamDeck.actions.registerAction(new OpenRotorAction());
+streamDeck.actions.registerAction(new RepeatLastPhraseAction());
+streamDeck.actions.registerAction(new StartReadingAction());
 
 // Connect to the Stream Deck
 streamDeck.connect();

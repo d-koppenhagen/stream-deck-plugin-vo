@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" width="72" height="72">
+  <g fill="none" stroke="#555555" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Play triangle -->
+    <polygon points="16 20 16 52 34 36"/>
+    <!-- Text lines -->
+    <line x1="42" y1="28" x2="58" y2="28"/>
+    <line x1="42" y1="36" x2="58" y2="36"/>
+    <line x1="42" y1="44" x2="54" y2="44"/>
+  </g>
+</svg>

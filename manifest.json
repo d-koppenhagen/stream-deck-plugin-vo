@@ -92,6 +92,26 @@
         { "Image": "imgs/actions/open-rotor", "Name": "Enabled" },
         { "Image": "imgs/actions/open-rotor-disabled", "Name": "Disabled" }
       ]
+    },
+    {
+      "Name": "Repeat Last Phrase",
+      "UUID": "com.voiceover-streamdeck.repeat-last-phrase",
+      "Icon": "imgs/actions/repeat-last-phrase",
+      "Tooltip": "Repeat last spoken phrase",
+      "States": [
+        { "Image": "imgs/actions/repeat-last-phrase", "Name": "Enabled" },
+        { "Image": "imgs/actions/repeat-last-phrase-disabled", "Name": "Disabled" }
+      ]
+    },
+    {
+      "Name": "Start Reading",
+      "UUID": "com.voiceover-streamdeck.start-reading",
+      "Icon": "imgs/actions/start-reading",
+      "Tooltip": "Start reading from current position",
+      "States": [
+        { "Image": "imgs/actions/start-reading", "Name": "Enabled" },
+        { "Image": "imgs/actions/start-reading-disabled", "Name": "Disabled" }
+      ]
     }
   ]
 }

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Build the Stream Deck plugin bundle (.sdPlugin directory).
-# Usage: npm run build:plugin
+# Usage: npm run build
 
 set -euo pipefail
 

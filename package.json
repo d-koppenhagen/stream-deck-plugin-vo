@@ -5,11 +5,10 @@
   "main": "dist/plugin.js",
   "type": "module",
   "scripts": {
-    "build": "tsc",
-    "build:plugin": "bash scripts/build-plugin.sh",
+    "build": "npm run icons && bash scripts/build-plugin.sh && npm run validate",
     "icons": "bash scripts/convert-icons.sh",
     "deploy": "bash scripts/deploy-local.sh",
-    "validate": "npm run build:plugin && streamdeck validate com.voiceover-streamdeck.sdPlugin",
+    "validate": "streamdeck validate com.voiceover-streamdeck.sdPlugin",
     "dev": "tsc --watch",
     "test": "vitest run"
   },
