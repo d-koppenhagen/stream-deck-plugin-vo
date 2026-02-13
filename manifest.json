@@ -49,8 +49,7 @@
       "Icon": "imgs/actions/open-settings",
       "Tooltip": "Open VoiceOver Utility settings",
       "States": [
-        { "Image": "imgs/actions/open-settings", "Name": "Enabled" },
-        { "Image": "imgs/actions/open-settings-disabled", "Name": "Disabled" }
+        { "Image": "imgs/actions/open-settings", "Name": "Default" }
       ]
     },
     {

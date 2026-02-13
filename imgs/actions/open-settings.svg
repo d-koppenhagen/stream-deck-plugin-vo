@@ -1,6 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" width="72" height="72">
   <g fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Gear outline -->
+    <path d="M39 13h-6l-1 6a17 17 0 0 0-5.4 3.1l-5.5-2.7-3 5.2 4.5 4.1A17 17 0 0 0 19 36a17 17 0 0 0 3.6 7.3l-4.5 4.1 3 5.2 5.5-2.7A17 17 0 0 0 32 53l1 6h6l1-6a17 17 0 0 0 5.4-3.1l5.5 2.7 3-5.2-4.5-4.1A17 17 0 0 0 53 36a17 17 0 0 0-3.6-7.3l4.5-4.1-3-5.2-5.5 2.7A17 17 0 0 0 40 19Z"/>
+    <!-- Center circle -->
     <circle cx="36" cy="36" r="8"/>
-    <path d="M36 14v6M36 52v6M14 36h6M52 36h6M20.3 20.3l4.2 4.2M47.5 47.5l4.2 4.2M51.7 20.3l-4.2 4.2M24.5 47.5l-4.2 4.2"/>
   </g>
 </svg>

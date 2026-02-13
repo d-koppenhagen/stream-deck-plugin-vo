@@ -51,7 +51,6 @@ describe("OpenSettingsAction", () => {
     actionInstance = new OpenSettingsAction();
     mockStateService = createMockStateService();
 
-    // Inject mock service.
     const instance = actionInstance as unknown as {
       stateService: VoiceOverStateService;
     };
@@ -59,45 +58,23 @@ describe("OpenSettingsAction", () => {
   });
 
   describe("onKeyDown", () => {
-    it("opens settings when VoiceOver is running", async () => {
-      vi.mocked(mockStateService.isRunning).mockResolvedValue(true);
+    it("opens VoiceOver settings", async () => {
       vi.mocked(mockStateService.openSettings).mockResolvedValue(undefined);
       const ev = createMockKeyDownEvent();
 
       await actionInstance.onKeyDown(ev);
 
-      expect(mockStateService.isRunning).toHaveBeenCalledOnce();
       expect(mockStateService.openSettings).toHaveBeenCalledOnce();
-    });
-
-    it("does nothing when VoiceOver is not running", async () => {
-      vi.mocked(mockStateService.isRunning).mockResolvedValue(false);
-      const ev = createMockKeyDownEvent();
-
-      await actionInstance.onKeyDown(ev);
-
-      expect(mockStateService.isRunning).toHaveBeenCalledOnce();
-      expect(mockStateService.openSettings).not.toHaveBeenCalled();
+      expect(mockStateService.isRunning).not.toHaveBeenCalled();
     });
 
     it("does not throw when openSettings fails", async () => {
-      vi.mocked(mockStateService.isRunning).mockResolvedValue(true);
       vi.mocked(mockStateService.openSettings).mockRejectedValue(
         new Error("open failed"),
       );
       const ev = createMockKeyDownEvent();
 
       await expect(actionInstance.onKeyDown(ev)).resolves.toBeUndefined();
-    });
-
-    it("does not throw when isRunning throws", async () => {
-      vi.mocked(mockStateService.isRunning).mockRejectedValue(
-        new Error("system error"),
-      );
-      const ev = createMockKeyDownEvent();
-
-      await expect(actionInstance.onKeyDown(ev)).resolves.toBeUndefined();
-      expect(mockStateService.openSettings).not.toHaveBeenCalled();
     });
   });
 });
