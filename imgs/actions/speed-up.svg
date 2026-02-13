@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" width="72" height="72">
+  <!-- Speed up: upward arrow with speed lines -->
+  <g fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Up arrow -->
+    <polyline points="24,38 36,16 48,38"/>
+    <line x1="36" y1="16" x2="36" y2="48"/>
+    <!-- Speed lines -->
+    <line x1="18" y1="52" x2="30" y2="52"/>
+    <line x1="22" y1="58" x2="36" y2="58"/>
+    <line x1="42" y1="52" x2="54" y2="52"/>
+    <line x1="36" y1="58" x2="50" y2="58"/>
+  </g>
+</svg>

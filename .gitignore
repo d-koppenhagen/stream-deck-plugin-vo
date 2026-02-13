@@ -1,0 +1,21 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Logs
+logs/
+
+# Kiro
+.kiro/
+
+# Stream Deck plugin bundle
+*.sdPlugin/
+*.sdPlugin
+
+# macOS
+.DS_Store
+
+# TypeScript
+*.tsbuildinfo

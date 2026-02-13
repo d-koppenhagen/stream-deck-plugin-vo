@@ -1,0 +1,37 @@
+{
+  "name": "voiceover-streamdeck-plugin",
+  "version": "1.0.0",
+  "description": "Stream Deck plugin for controlling VoiceOver on macOS for accessibility testing",
+  "main": "dist/plugin.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "build:plugin": "bash scripts/build-plugin.sh",
+    "icons": "bash scripts/convert-icons.sh",
+    "deploy": "bash scripts/deploy-local.sh",
+    "validate": "npm run build:plugin && streamdeck validate com.voiceover-streamdeck.sdPlugin",
+    "dev": "tsc --watch",
+    "test": "vitest run"
+  },
+  "keywords": [
+    "streamdeck",
+    "voiceover",
+    "accessibility",
+    "macos",
+    "elgato"
+  ],
+  "author": "VoiceOver Stream Deck Contributors",
+  "license": "MIT",
+  "dependencies": {
+    "@elgato/streamdeck": "^2.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.2.3",
+    "fast-check": "^4.0.0",
+    "typescript": "^5.7.0",
+    "vitest": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "UUID": "com.voiceover-streamdeck",
+  "Name": "VoiceOver Control",
+  "Version": "1.0.0.0",
+  "Author": "VoiceOver Stream Deck Contributors",
+  "Description": "Control VoiceOver on macOS directly from your Stream Deck",
+  "Category": "VoiceOver Control",
+  "CategoryIcon": "imgs/plugin/voiceover-plugin",
+  "Icon": "imgs/plugin/voiceover-plugin",
+  "SDKVersion": 2,
+  "Software": {
+    "MinimumVersion": "6.4"
+  },
+  "OS": [
+    {
+      "Platform": "mac",
+      "MinimumVersion": "13.0"
+    }
+  ],
+  "Nodejs": {
+    "Version": "20",
+    "Debug": "enabled"
+  },
+  "CodePath": "bin/plugin.js",
+  "Actions": [
+    {
+      "Name": "VoiceOver Toggle",
+      "UUID": "com.voiceover-streamdeck.toggle",
+      "Icon": "imgs/actions/toggle-voiceover",
+      "Tooltip": "Toggle VoiceOver on/off",
+      "States": [
+        { "Image": "imgs/actions/toggle-voiceover-active", "Name": "Active" },
+        { "Image": "imgs/actions/toggle-voiceover-disabled", "Name": "Inactive" }
+      ]
+    },
+    {
+      "Name": "Interrupt Speech",
+      "UUID": "com.voiceover-streamdeck.interrupt",
+      "Icon": "imgs/actions/interrupt-speech",
+      "Tooltip": "Stop current speech output",
+      "States": [
+        { "Image": "imgs/actions/interrupt-speech", "Name": "Enabled" },
+        { "Image": "imgs/actions/interrupt-speech-disabled", "Name": "Disabled" }
+      ]
+    },
+    {
+      "Name": "Speed Up",
+      "UUID": "com.voiceover-streamdeck.speed-up",
+      "Icon": "imgs/actions/speed-up",
+      "Tooltip": "Increase speech rate",
+      "States": [
+        { "Image": "imgs/actions/speed-up", "Name": "Enabled" },
+        { "Image": "imgs/actions/speed-up-disabled", "Name": "Disabled" }
+      ]
+    },
+    {
+      "Name": "Speed Down",
+      "UUID": "com.voiceover-streamdeck.speed-down",
+      "Icon": "imgs/actions/speed-down",
+      "Tooltip": "Decrease speech rate",
+      "States": [
+        { "Image": "imgs/actions/speed-down", "Name": "Enabled" },
+        { "Image": "imgs/actions/speed-down-disabled", "Name": "Disabled" }
+      ]
+    },
+    {
+      "Name": "Next Element",
+      "UUID": "com.voiceover-streamdeck.next-element",
+      "Icon": "imgs/actions/next-element",
+      "Tooltip": "Navigate to next element",
+      "States": [
+        { "Image": "imgs/actions/next-element", "Name": "Enabled" },
+        { "Image": "imgs/actions/next-element-disabled", "Name": "Disabled" }
+      ]
+    },
+    {
+      "Name": "Previous Element",
+      "UUID": "com.voiceover-streamdeck.prev-element",
+      "Icon": "imgs/actions/prev-element",
+      "Tooltip": "Navigate to previous element",
+      "States": [
+        { "Image": "imgs/actions/prev-element", "Name": "Enabled" },
+        { "Image": "imgs/actions/prev-element-disabled", "Name": "Disabled" }
+      ]
+    },
+    {
+      "Name": "Open Rotor",
+      "UUID": "com.voiceover-streamdeck.open-rotor",
+      "Icon": "imgs/actions/open-rotor",
+      "Tooltip": "Toggle VoiceOver rotor",
+      "States": [
+        { "Image": "imgs/actions/open-rotor", "Name": "Enabled" },
+        { "Image": "imgs/actions/open-rotor-disabled", "Name": "Disabled" }
+      ]
+    }
+  ]
+}

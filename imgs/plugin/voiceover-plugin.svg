@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" width="72" height="72">
+  <!-- VoiceOver plugin icon: accessibility symbol with sound waves -->
+  <g fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Person/accessibility figure -->
+    <!-- Head -->
+    <circle cx="30" cy="20" r="3.5"/>
+    <!-- Body -->
+    <line x1="30" y1="23.5" x2="30" y2="38"/>
+    <!-- Arms -->
+    <line x1="20" y1="30" x2="40" y2="30"/>
+    <!-- Left leg -->
+    <line x1="30" y1="38" x2="22" y2="52"/>
+    <!-- Right leg -->
+    <line x1="30" y1="38" x2="38" y2="52"/>
+    <!-- Sound waves emanating from figure -->
+    <path d="M46 28 Q50 36 46 44"/>
+    <path d="M52 24 Q58 36 52 48"/>
+    <path d="M58 20 Q66 36 58 52"/>
+  </g>
+</svg>

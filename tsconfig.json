@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    // Output settings
+    "target": "ES2022",
+    "lib": ["ES2022"],
+    "module": "ES2022",
+    "moduleResolution": "Bundler",
+    "outDir": "dist",
+    "rootDir": "src",
+
+    // Strict type checking
+    "strict": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+
+    // Source map and declaration output
+    "declaration": true,
+    "sourceMap": true,
+
+    // Resolve JSON modules (useful for manifest imports)
+    "resolveJsonModule": true
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules", "dist", "**/*.test.ts"]
+}
