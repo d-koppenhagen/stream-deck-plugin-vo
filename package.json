@@ -21,6 +21,14 @@
   ],
   "author": "VoiceOver Stream Deck Contributors",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/d-koppenhagen/stream-deck-plugin-vo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/d-koppenhagen/stream-deck-plugin-vo/issues"
+  },
+  "homepage": "https://github.com/d-koppenhagen/stream-deck-plugin-vo#readme",
   "dependencies": {
     "@elgato/streamdeck": "^2.0.0"
   },

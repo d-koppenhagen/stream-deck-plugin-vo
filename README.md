@@ -2,6 +2,8 @@
 
 A Stream Deck plugin for controlling VoiceOver on macOS. Designed to simplify accessibility testing by putting common VoiceOver commands at your fingertips via physical keys on the Elgato Stream Deck.
 
+![VoiceOver Stream Deck Plugin Preview](imgs/vo-streamdeck-preview.png)
+
 ## Features
 
 - **Toggle VoiceOver** — Turn VoiceOver on or off with a single key press
@@ -29,8 +31,8 @@ A Stream Deck plugin for controlling VoiceOver on macOS. Designed to simplify ac
 2. Clone the repository and install dependencies:
 
    ```bash
-   git clone https://github.com/your-username/voiceover-streamdeck-plugin.git
-   cd voiceover-streamdeck-plugin
+   git clone https://github.com/d-koppenhagen/stream-deck-plugin-vo.git
+   cd stream-deck-plugin-vo
    npm install
    ```
 
