@@ -93,6 +93,26 @@
       ]
     },
     {
+      "Name": "Next Focusable",
+      "UUID": "com.voiceover-streamdeck.next-focusable",
+      "Icon": "imgs/actions/next-focusable",
+      "Tooltip": "Move focus to next focusable item (Tab)",
+      "States": [
+        { "Image": "imgs/actions/next-focusable", "Name": "Enabled" },
+        { "Image": "imgs/actions/next-focusable-disabled", "Name": "Disabled" }
+      ]
+    },
+    {
+      "Name": "Previous Focusable",
+      "UUID": "com.voiceover-streamdeck.prev-focusable",
+      "Icon": "imgs/actions/prev-focusable",
+      "Tooltip": "Move focus to previous focusable item (Shift+Tab)",
+      "States": [
+        { "Image": "imgs/actions/prev-focusable", "Name": "Enabled" },
+        { "Image": "imgs/actions/prev-focusable-disabled", "Name": "Disabled" }
+      ]
+    },
+    {
       "Name": "Start Reading",
       "UUID": "com.voiceover-streamdeck.start-reading",
       "Icon": "imgs/actions/start-reading",

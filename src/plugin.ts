@@ -8,6 +8,8 @@ import { PrevElementAction } from "./actions/prev-element.js";
 import { OpenRotorAction } from "./actions/open-rotor.js";
 import { RepeatLastPhraseAction } from "./actions/repeat-last-phrase.js";
 import { StartReadingAction } from "./actions/start-reading.js";
+import { NextFocusableAction } from "./actions/next-focusable.js";
+import { PrevFocusableAction } from "./actions/prev-focusable.js";
 
 // Register all plugin actions
 streamDeck.actions.registerAction(new ToggleVoiceOverAction());
@@ -18,6 +20,8 @@ streamDeck.actions.registerAction(new PrevElementAction());
 streamDeck.actions.registerAction(new OpenRotorAction());
 streamDeck.actions.registerAction(new RepeatLastPhraseAction());
 streamDeck.actions.registerAction(new StartReadingAction());
+streamDeck.actions.registerAction(new NextFocusableAction());
+streamDeck.actions.registerAction(new PrevFocusableAction());
 
 // Connect to the Stream Deck
 streamDeck.connect();
