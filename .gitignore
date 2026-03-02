@@ -13,6 +13,7 @@ logs/
 # Stream Deck plugin bundle
 *.sdPlugin/
 *.sdPlugin
+*.streamDeckPlugin
 
 # macOS
 .DS_Store
