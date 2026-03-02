@@ -44,6 +44,7 @@ Thanks for your interest in contributing to the VoiceOver Stream Deck Plugin! Th
 | `npm test` | Run unit and property-based tests via Vitest |
 | `npm run build` | Compile TypeScript, convert icons, assemble the `.sdPlugin` bundle, and validate |
 | `npm run deploy` | Full local deploy: build, link into Stream Deck, and restart the plugin |
+| `npm run release -- patch` | Bump version in all files, commit, and tag (also: `minor`, `major`) |
 | `npm run dev` | Watch mode — recompiles on file changes (restart plugin manually) |
 | `npm run icons` | Convert SVG source icons to PNG |
 | `npm run validate` | Run the Stream Deck CLI validator against the built bundle |
@@ -111,9 +112,9 @@ These are kept in sync automatically. When you run `npm version`, the `version` 
 2. Bump the version:
 
    ```bash
-   npm version patch   # 1.0.0 → 1.0.1 (bug fixes)
-   npm version minor   # 1.0.0 → 1.1.0 (new features)
-   npm version major   # 1.0.0 → 2.0.0 (breaking changes)
+   npm run release -- patch   # 1.0.0 → 1.0.1 (bug fixes)
+   npm run release -- minor   # 1.0.0 → 1.1.0 (new features)
+   npm run release -- major   # 1.0.0 → 2.0.0 (breaking changes)
    ```
 
    This single command:
