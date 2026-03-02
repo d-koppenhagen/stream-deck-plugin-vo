@@ -10,13 +10,11 @@ set -euo pipefail
 VERSION="${npm_package_version:?npm_package_version not set — run this via npm version}"
 SD_VERSION="${VERSION}.0"
 
-# Use node for cross-platform JSON editing (preserves formatting)
-node -e "
+node --input-type=commonjs -e "
   const fs = require('fs');
-  const path = 'manifest.json';
-  const manifest = JSON.parse(fs.readFileSync(path, 'utf8'));
+  const manifest = JSON.parse(fs.readFileSync('manifest.json', 'utf8'));
   manifest.Version = '${SD_VERSION}';
-  fs.writeFileSync(path, JSON.stringify(manifest, null, 2) + '\n');
+  fs.writeFileSync('manifest.json', JSON.stringify(manifest, null, 2) + '\n');
 "
 
 git add manifest.json

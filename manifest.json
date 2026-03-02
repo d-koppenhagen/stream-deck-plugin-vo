@@ -29,8 +29,14 @@
       "Icon": "imgs/actions/toggle-voiceover",
       "Tooltip": "Toggle VoiceOver on/off",
       "States": [
-        { "Image": "imgs/actions/toggle-voiceover-active", "Name": "Enabled" },
-        { "Image": "imgs/actions/toggle-voiceover", "Name": "Disabled" }
+        {
+          "Image": "imgs/actions/toggle-voiceover-active",
+          "Name": "Enabled"
+        },
+        {
+          "Image": "imgs/actions/toggle-voiceover",
+          "Name": "Disabled"
+        }
       ]
     },
     {
@@ -39,7 +45,10 @@
       "Icon": "imgs/actions/open-settings",
       "Tooltip": "Open VoiceOver Utility settings",
       "States": [
-        { "Image": "imgs/actions/open-settings", "Name": "Default" }
+        {
+          "Image": "imgs/actions/open-settings",
+          "Name": "Default"
+        }
       ]
     },
     {
@@ -48,8 +57,14 @@
       "Icon": "imgs/actions/interrupt-speech",
       "Tooltip": "Stop current speech output",
       "States": [
-        { "Image": "imgs/actions/interrupt-speech", "Name": "Enabled" },
-        { "Image": "imgs/actions/interrupt-speech-disabled", "Name": "Disabled" }
+        {
+          "Image": "imgs/actions/interrupt-speech",
+          "Name": "Enabled"
+        },
+        {
+          "Image": "imgs/actions/interrupt-speech-disabled",
+          "Name": "Disabled"
+        }
       ]
     },
     {
@@ -58,8 +73,14 @@
       "Icon": "imgs/actions/next-element",
       "Tooltip": "Navigate to next element",
       "States": [
-        { "Image": "imgs/actions/next-element", "Name": "Enabled" },
-        { "Image": "imgs/actions/next-element-disabled", "Name": "Disabled" }
+        {
+          "Image": "imgs/actions/next-element",
+          "Name": "Enabled"
+        },
+        {
+          "Image": "imgs/actions/next-element-disabled",
+          "Name": "Disabled"
+        }
       ]
     },
     {
@@ -68,8 +89,14 @@
       "Icon": "imgs/actions/prev-element",
       "Tooltip": "Navigate to previous element",
       "States": [
-        { "Image": "imgs/actions/prev-element", "Name": "Enabled" },
-        { "Image": "imgs/actions/prev-element-disabled", "Name": "Disabled" }
+        {
+          "Image": "imgs/actions/prev-element",
+          "Name": "Enabled"
+        },
+        {
+          "Image": "imgs/actions/prev-element-disabled",
+          "Name": "Disabled"
+        }
       ]
     },
     {
@@ -78,8 +105,14 @@
       "Icon": "imgs/actions/open-rotor",
       "Tooltip": "Toggle VoiceOver rotor",
       "States": [
-        { "Image": "imgs/actions/open-rotor", "Name": "Enabled" },
-        { "Image": "imgs/actions/open-rotor-disabled", "Name": "Disabled" }
+        {
+          "Image": "imgs/actions/open-rotor",
+          "Name": "Enabled"
+        },
+        {
+          "Image": "imgs/actions/open-rotor-disabled",
+          "Name": "Disabled"
+        }
       ]
     },
     {
@@ -88,8 +121,14 @@
       "Icon": "imgs/actions/repeat-last-phrase",
       "Tooltip": "Repeat last spoken phrase",
       "States": [
-        { "Image": "imgs/actions/repeat-last-phrase", "Name": "Enabled" },
-        { "Image": "imgs/actions/repeat-last-phrase-disabled", "Name": "Disabled" }
+        {
+          "Image": "imgs/actions/repeat-last-phrase",
+          "Name": "Enabled"
+        },
+        {
+          "Image": "imgs/actions/repeat-last-phrase-disabled",
+          "Name": "Disabled"
+        }
       ]
     },
     {
@@ -98,8 +137,14 @@
       "Icon": "imgs/actions/next-focusable",
       "Tooltip": "Move focus to next focusable item (Tab)",
       "States": [
-        { "Image": "imgs/actions/next-focusable", "Name": "Enabled" },
-        { "Image": "imgs/actions/next-focusable-disabled", "Name": "Disabled" }
+        {
+          "Image": "imgs/actions/next-focusable",
+          "Name": "Enabled"
+        },
+        {
+          "Image": "imgs/actions/next-focusable-disabled",
+          "Name": "Disabled"
+        }
       ]
     },
     {
@@ -108,8 +153,14 @@
       "Icon": "imgs/actions/prev-focusable",
       "Tooltip": "Move focus to previous focusable item (Shift+Tab)",
       "States": [
-        { "Image": "imgs/actions/prev-focusable", "Name": "Enabled" },
-        { "Image": "imgs/actions/prev-focusable-disabled", "Name": "Disabled" }
+        {
+          "Image": "imgs/actions/prev-focusable",
+          "Name": "Enabled"
+        },
+        {
+          "Image": "imgs/actions/prev-focusable-disabled",
+          "Name": "Disabled"
+        }
       ]
     },
     {
@@ -118,8 +169,14 @@
       "Icon": "imgs/actions/start-reading",
       "Tooltip": "Start reading from current position",
       "States": [
-        { "Image": "imgs/actions/start-reading", "Name": "Enabled" },
-        { "Image": "imgs/actions/start-reading-disabled", "Name": "Disabled" }
+        {
+          "Image": "imgs/actions/start-reading",
+          "Name": "Enabled"
+        },
+        {
+          "Image": "imgs/actions/start-reading-disabled",
+          "Name": "Disabled"
+        }
       ]
     }
   ]
