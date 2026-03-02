@@ -10,7 +10,8 @@
     "deploy": "bash scripts/deploy-local.sh",
     "validate": "streamdeck validate com.voiceover-streamdeck.sdPlugin",
     "dev": "tsc --watch",
-    "test": "vitest run"
+    "test": "vitest run",
+    "version": "bash scripts/sync-manifest-version.sh"
   },
   "keywords": [
     "streamdeck",

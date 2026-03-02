@@ -91,21 +91,51 @@ streamdeck unlink com.voiceover-streamdeck.sdPlugin
 
 ## Releasing
 
-1. Build and pack the plugin:
+### How versioning works
+
+The project maintains version numbers in two places:
+
+- `package.json` — standard semver (e.g. `1.2.3`)
+- `manifest.json` — Stream Deck's 4-segment format (e.g. `1.2.3.0`)
+
+These are kept in sync automatically. When you run `npm version`, the `version` lifecycle script (`scripts/sync-manifest-version.sh`) updates `manifest.json` and stages it before npm creates the commit and tag. You never need to edit version numbers by hand.
+
+### Cutting a release
+
+1. Make sure your working tree is clean and all tests pass:
+
+   ```bash
+   npm test
+   ```
+
+2. Bump the version:
+
+   ```bash
+   npm version patch   # 1.0.0 → 1.0.1 (bug fixes)
+   npm version minor   # 1.0.0 → 1.1.0 (new features)
+   npm version major   # 1.0.0 → 2.0.0 (breaking changes)
+   ```
+
+   This single command:
+   - bumps the version in `package.json` and `package-lock.json`
+   - updates `manifest.json` to the matching 4-segment version (e.g. `1.0.1.0`)
+   - creates a git commit with all three files
+   - creates a git tag (`v1.0.1`)
+
+3. Push the commit and tag:
+
+   ```bash
+   git push --follow-tags
+   ```
+
+4. Build and pack the plugin:
 
    ```bash
    npm run build
    streamdeck pack com.voiceover-streamdeck.sdPlugin
    ```
 
-2. Tag the release and push:
-
-   ```bash
-   git tag v1.0.0
-   git push origin v1.0.0
-   ```
-
-3. Create a GitHub Release for the tag and attach the generated `.streamDeckPlugin` file as asset.
+5. Create a GitHub Release for the tag and attach the generated `.streamDeckPlugin` file as asset.
 
 ## Pull Request Guidelines
 
