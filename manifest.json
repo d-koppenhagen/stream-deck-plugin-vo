@@ -7,9 +7,9 @@
   "Category": "VoiceOver Control",
   "CategoryIcon": "imgs/plugin/voiceover-plugin",
   "Icon": "imgs/plugin/voiceover-plugin",
-  "SDKVersion": 2,
+  "SDKVersion": 3,
   "Software": {
-    "MinimumVersion": "6.4"
+    "MinimumVersion": "6.9"
   },
   "OS": [
     {

@@ -18,7 +18,7 @@ A Stream Deck plugin for controlling VoiceOver on macOS. Designed to simplify ac
 ## Requirements
 
 - macOS 13.0 or later
-- Elgato Stream Deck with Stream Deck Software 6.4+
+- Elgato Stream Deck with Stream Deck Software 6.9+
 
 ## Installation
 
