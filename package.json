@@ -1,6 +1,6 @@
 {
   "name": "voiceover-streamdeck-plugin",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Stream Deck plugin for controlling VoiceOver on macOS for accessibility testing",
   "main": "dist/plugin.js",
   "type": "module",

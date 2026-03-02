@@ -1,7 +1,7 @@
 {
   "UUID": "com.voiceover-streamdeck",
   "Name": "VoiceOver Control",
-  "Version": "1.0.0.0",
+  "Version": "1.0.1.0",
   "Author": "VoiceOver Stream Deck Contributors",
   "Description": "Control VoiceOver on macOS directly from your Stream Deck",
   "Category": "VoiceOver Control",
