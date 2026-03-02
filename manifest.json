@@ -34,6 +34,15 @@
       ]
     },
     {
+      "Name": "Open VoiceOver Settings",
+      "UUID": "com.voiceover-streamdeck.open-settings",
+      "Icon": "imgs/actions/open-settings",
+      "Tooltip": "Open VoiceOver Utility settings",
+      "States": [
+        { "Image": "imgs/actions/open-settings", "Name": "Default" }
+      ]
+    },
+    {
       "Name": "Interrupt Speech",
       "UUID": "com.voiceover-streamdeck.interrupt",
       "Icon": "imgs/actions/interrupt-speech",
@@ -41,15 +50,6 @@
       "States": [
         { "Image": "imgs/actions/interrupt-speech", "Name": "Enabled" },
         { "Image": "imgs/actions/interrupt-speech-disabled", "Name": "Disabled" }
-      ]
-    },
-    {
-      "Name": "Open VoiceOver Settings",
-      "UUID": "com.voiceover-streamdeck.open-settings",
-      "Icon": "imgs/actions/open-settings",
-      "Tooltip": "Open VoiceOver Utility settings",
-      "States": [
-        { "Image": "imgs/actions/open-settings", "Name": "Default" }
       ]
     },
     {
